@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       !contains(github.event.head_commit.message, 'skip ci') ||
-      github.repository !== 'pikokr/typescript-sample-module'
+      github.repository != 'pikokr/typescript-sample-module'
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
