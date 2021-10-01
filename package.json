@@ -1,10 +1,14 @@
 {
-  "name": "typescript-sample-project",
+  "name": "@pikokr/command.ts-views",
   "version": "0.0.1",
   "main": "dist/index.js",
   "license": "MIT",
   "devDependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "@pikokr/command.ts": "^3.0.6-dev.30e8c86",
     "@types/node": "^16.10.2",
+    "discord.js": "^13.1.0",
     "prettier": "^2.4.1",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
@@ -14,5 +18,8 @@
     "dev": "ts-node src",
     "build": "tsc",
     "test": "ts-node test"
+  },
+  "peerDependencies": {
+    "@pikokr/command.ts": "^3.0.6-dev.30e8c86"
   }
 }

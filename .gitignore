@@ -117,3 +117,4 @@ dist
 .pnp.*
 
 /.idea
+config.json

@@ -1,3 +1,1 @@
-export function sayHello() {
-  return 'Hello, world!'
-}
+export * from './init'
