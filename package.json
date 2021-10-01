@@ -17,7 +17,8 @@
     "start": "node dist",
     "dev": "ts-node src",
     "build": "tsc",
-    "test": "ts-node test"
+    "test": "ts-node test",
+    "prepack": "tsc"
   },
   "peerDependencies": {
     "@pikokr/command.ts": "^3.0.6-dev.30e8c86"
