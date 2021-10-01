@@ -70,9 +70,9 @@
     tslib "^2.3.0"
 
 "@pikokr/command.ts@^3.0.6-dev.30e8c86":
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/@pikokr/command.ts/-/command.ts-3.0.6.tgz#b8045390822b0d971fc4f3db954452b4f59e6150"
-  integrity sha512-uzuG9bUdssSUCvzZ5j+KcvVEFHKmjZITewHqnGwpgSuwx9a/n5zNPMdp40WsVtnU16lDG6Y2JczD0u3JKmcnUQ==
+  version "3.0.6-dev.30e8c86"
+  resolved "https://registry.yarnpkg.com/@pikokr/command.ts/-/command.ts-3.0.6-dev.30e8c86.tgz#13c06a7ae3f296a587e5f01c0106bdd19c99173e"
+  integrity sha512-0VBMqJOWWbVkpkFqgK+VndW76BkYTJ1OeLMF4Jxc6BURkn+4WaNyaDPLmCyhhY56BOavuEA2tUcsQGmkDT9EBg==
   dependencies:
     "@types/node" "^14.14.37"
     discord-api-types "^0.23.1"
