@@ -6,7 +6,7 @@
   "devDependencies": {
     "@discordjs/builders": "^0.6.0",
     "@discordjs/rest": "^0.1.0-canary.0",
-    "@pikokr/command.ts": "^3.0.6-dev.30e8c86",
+    "@pikokr/command.ts": "^3.0.8",
     "@types/node": "^16.10.2",
     "discord.js": "^13.1.0",
     "prettier": "^2.4.1",
@@ -21,6 +21,6 @@
     "prepack": "tsc"
   },
   "peerDependencies": {
-    "@pikokr/command.ts": "^3.0.6-dev.30e8c86"
+    "@pikokr/command.ts": "^3.0.8"
   }
 }
