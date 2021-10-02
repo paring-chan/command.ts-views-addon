@@ -32,18 +32,9 @@ class TestView extends View {
 
   @uiComponent(
     new MessageSelectMenu().addOptions(
-      {
-        value: '1',
-        label: '와아',
-      },
-      {
-        value: '2',
-        label: '와아아',
-      },
-      {
-        value: '3',
-        label: '와아아아',
-      },
+      { value: '1', label: '와아' },
+      { value: '2', label: '와아아' },
+      { value: '3', label: '와아아아' },
     ),
     {
       newLine: true,
