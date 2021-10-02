@@ -1,5 +1,11 @@
 import { command, listener, Module } from '@pikokr/command.ts'
-import { ButtonInteraction, Message, MessageButton } from 'discord.js'
+import {
+  ButtonInteraction,
+  Message,
+  MessageButton,
+  MessageSelectMenu,
+  SelectMenuInteraction,
+} from 'discord.js'
 import { uiComponent, generateComponents, View } from '../../src'
 
 class TestView extends View {
@@ -19,10 +25,33 @@ class TestView extends View {
 
   @uiComponent(new MessageButton().setStyle('SECONDARY').setLabel('Test3'), {
     deferUpdate: false,
-    newLine: true,
   })
   async secondary(i: ButtonInteraction) {
     await i.reply('SECONDARY')
+  }
+
+  @uiComponent(
+    new MessageSelectMenu().addOptions(
+      {
+        value: '1',
+        label: '와아',
+      },
+      {
+        value: '2',
+        label: '와아아',
+      },
+      {
+        value: '3',
+        label: '와아아아',
+      },
+    ),
+    {
+      newLine: true,
+      deferUpdate: false,
+    },
+  )
+  async select(i: SelectMenuInteraction) {
+    await i.reply(i.values.join(', '))
   }
 }
 
