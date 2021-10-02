@@ -1,19 +1,26 @@
-import { command, Module } from '@pikokr/command.ts'
+import { command, listener, Module } from '@pikokr/command.ts'
 import { ButtonInteraction, Message, MessageButton } from 'discord.js'
-import { button, generateComponents, View } from '../../src'
+import { uiComponent, generateComponents, View } from '../../src'
 
 class TestView extends View {
-  @button(new MessageButton().setStyle('SUCCESS').setLabel('Test'), false)
+  @uiComponent(new MessageButton().setStyle('SUCCESS').setLabel('Test'), {
+    deferUpdate: false,
+  })
   async success(i: ButtonInteraction) {
     await i.reply('SUCCESS')
   }
 
-  @button(new MessageButton().setStyle('PRIMARY').setLabel('Test2'), false)
+  @uiComponent(new MessageButton().setStyle('PRIMARY').setLabel('Test2'), {
+    deferUpdate: false,
+  })
   async primary(i: ButtonInteraction) {
     await i.reply('PRIMARY')
   }
 
-  @button(new MessageButton().setStyle('SECONDARY').setLabel('Test3'), false)
+  @uiComponent(new MessageButton().setStyle('SECONDARY').setLabel('Test3'), {
+    deferUpdate: false,
+    newLine: true,
+  })
   async secondary(i: ButtonInteraction) {
     await i.reply('SECONDARY')
   }
@@ -24,6 +31,11 @@ const view = new TestView()
 class TestModule extends Module {
   load() {
     console.log('test module loaded')
+  }
+
+  @listener('commandError')
+  err(err: Error) {
+    console.error(err)
   }
 
   @command()

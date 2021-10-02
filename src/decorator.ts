@@ -1,13 +1,13 @@
 import { checkView } from './utils'
 import { View, ViewItem } from './structures'
 import { KViewItems } from './symbols'
-import { MessageButton } from 'discord.js'
+import { MessageActionRowComponent } from 'discord.js'
 
 let index = 0
 
-export const button = (
-  button: MessageButton,
-  deferUpdate: boolean = true,
+export const uiComponent = (
+  button: MessageActionRowComponent,
+  options: Partial<{ newLine: boolean; deferUpdate: boolean }> = {},
 ): MethodDecorator => {
   return (target, propertyKey) => {
     checkView(target)
@@ -19,11 +19,13 @@ export const button = (
       button,
       Reflect.get(target, propertyKey),
       target.constructor as typeof View,
-      deferUpdate,
+      options.deferUpdate ?? true,
     )
 
     if (properties) {
       if (!properties.length) properties.push([])
+
+      if (options.newLine) properties.push([])
 
       properties[properties.length - 1].push(item)
     } else {

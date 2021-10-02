@@ -6,10 +6,12 @@ export const checkView = (obj: any) => {
 }
 
 export const generateComponents = (view: View): MessageActionRow[] => {
-  return view.components.map(
-    (x) =>
-      new MessageActionRow({
-        components: x.map((y) => y.component),
-      }),
-  )
+  return view.components
+    .filter((x) => x.length)
+    .map(
+      (x) =>
+        new MessageActionRow({
+          components: x.map((y) => y.component),
+        }),
+    )
 }
