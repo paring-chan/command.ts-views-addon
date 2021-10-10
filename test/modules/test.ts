@@ -13,6 +13,7 @@ class TestView extends View {
     deferUpdate: false,
   })
   async success(i: ButtonInteraction) {
+    this.stop()
     await i.reply('SUCCESS')
   }
 
@@ -20,14 +21,22 @@ class TestView extends View {
     deferUpdate: false,
   })
   async primary(i: ButtonInteraction) {
-    await i.reply('PRIMARY')
+    this.stop()
+    await i.reply({
+      content: 'PRIMARY',
+      components: []
+    })
   }
 
   @uiComponent(new MessageButton().setStyle('SECONDARY').setLabel('Test3'), {
     deferUpdate: false,
   })
   async secondary(i: ButtonInteraction) {
-    await i.reply('SECONDARY')
+    this.stop()
+    await i.update({
+      content: 'SECONDARY',
+      components:[]
+    })
   }
 
   @uiComponent(
@@ -42,11 +51,14 @@ class TestView extends View {
     },
   )
   async select(i: SelectMenuInteraction) {
-    await i.reply(i.values.join(', '))
+    this.stop()
+    await i.update({
+      content: i.values.join(', '),
+      components: []
+    })
   }
 }
 
-const view = new TestView()
 
 class TestModule extends Module {
   load() {
@@ -60,6 +72,8 @@ class TestModule extends Module {
 
   @command()
   async test(msg: Message) {
+    const view = new TestView()
+
     await msg.reply({
       content: 'sans',
       components: generateComponents(view),
