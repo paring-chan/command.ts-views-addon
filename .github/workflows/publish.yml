@@ -11,7 +11,7 @@ jobs:
       !contains(github.event.head_commit.message, 'skip ci') ||
       github.repository != 'pikokr/typescript-sample-module'
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v1
         with:
           node-version: 16.6
